@@ -1,0 +1,47 @@
+﻿@model IEnumerable<tuesdaycrud.Models.Student>
+@{
+    ViewData["Title"] = "Index";
+}
+<a asp-action="create" class="btn btn-success">Create New</a>
+<h2>Index</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.roll_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=>model.stu_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=>model.stu_address)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => i.roll_no)
+                </td>
+                <td>
+                    @Html.DisplayFor(model=>i.stu_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model=>i.stu_address)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-roll_no="@i.roll_no"class="btn btn-success">Edit</a>
+                    <input type="submit"value="delete"  asp-route-roll_no="@i.roll_no" class="btn btn-danger"/>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
